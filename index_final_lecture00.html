@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Index Page 1</title>
+    <style>
+      * {
+        outline:  1px dotted red; 
+      }
+      .container {
+        width:  970px;
+        min-height:  500px;
+      }
+      button {
+        height:  100px;
+        width:  200px;
+      }
+      div.box {
+        width: 200px;
+        height: 200px;
+        font-size:  86px;
+        color:  #FFF;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <button id="btnRed">Click!</button>
+      <button id="btnBlue">Click!</button>
+      <div id="colorBox" class="box"></div>
+    </div>
+
+    <script>
+      var counter = 0;
+      // console.log(document.getElementById('btn'));
+      // console.log(window);
+      var elementRed = document.getElementById("btnRed");
+      elementRed.onclick = function(){
+        console.log("Button red was clicked!");
+        document.getElementById("colorBox");
+        console.log(document.getElementById("colorBox").style.background = 'red');
+        console.log(document.getElementById("colorBox").style.border = '5px solid transparent');
+        counter = counter - 1;
+        document.getElementById("colorBox").innerHTML = counter;
+      }
+
+      var elementBlue = document.getElementById("btnBlue");
+      elementBlue.onclick = function(){
+        console.log("Button Blue was clicked");
+        document.getElementById("colorBox");
+        console.log(document.getElementById("colorBox").style.background = 'blue');
+        console.log(document.getElementById("colorBox").style.border = '5px solid yellow');
+        counter = counter + 1;
+        document.getElementById("colorBox").innerHTML = counter;
+      }
+
+      // $("#btn").click(function(){
+      //     console.log("Button was clicked and jquery rendered it.");
+      // })
+    </script>
+
+
+  </body>
+</html>

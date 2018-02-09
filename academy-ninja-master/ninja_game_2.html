@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Ninja Game 2</title>	
+  <style>
+    /* All of our CSS code goes here... */
+    * { 
+      margin: 0px;
+      padding:  0px;
+    }
+    .row {
+      line-height: 0px;
+    }
+    .wall {
+      background-color:  blue;
+      background-image:  url('img/wall.png');
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+    }
+    .sushi {
+      background-color:  black;
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      background-image: url('img/sushi.png');
+      background-size: contain;
+    }
+    .blank {
+      background-color: black;
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+    }
+    #ninjaman {
+      background-color:  black;
+      height: 40px;
+      width: 40px;
+      display: inline-block;
+      background-image: url('img/ninja.gif');
+      background-size: contain;
+      position: absolute;
+      left: 40px;
+      top: 40px;
+    }
+    /* End of CSS */
+  </style>
+</head>
+<body>
+<!-- All of our HTML code goes here... -->
+
+<div id="world"></div>
+<div id="ninjaman"></div>
+
+<!-- End of HTML-->
+</body>
+<script>
+
+  // 1 => <div class='wall'></div>
+  // 0 => <div class='blank'></div>
+  // 2 => <div class='sushi'></div>
+  // 5 => <div class='ninjaman'></div>
+  // map = [ 1, 2, 3 ]
+  // map = [ [1,2,3], [1,2,3], [1,2,3] ];
+
+
+var world = [
+    [1,1,1,1,1,1,1,1,1,1,1],
+    [1,2,2,2,2,2,2,2,2,2,1],
+    [1,2,1,2,1,2,1,2,1,2,1],
+    [1,2,1,2,1,1,1,2,1,2,1],
+    [1,2,1,2,0,2,1,2,1,2,1],
+    [1,2,2,2,1,2,2,2,2,2,1],
+    [1,1,1,1,1,1,1,1,1,1,1]
+  ];
+  var worldDict = {
+    0: 'blank',
+    1: 'wall',
+    2: 'sushi'
+  }
+
+  // var el = document.getElementById('world');
+
+  function drawWorld(){
+    output = "";
+
+    for(var row = 0; row < world.length; row++){
+      output += "<div class='row'>"
+      for(var x = 0; x < world[row].length; x++){
+        output += "<div class='"+ worldDict[world[row][x]]+"'></div>"
+      }
+      output += "</div>"
+    }
+    document.getElementById('world').innerHTML = output;
+  }
+
+  drawWorld();
+
+  // var leftValue = 450, topValue = 100, direction = 'down', step = 1;;
+
+  var ninjaman = {
+    x: 1,
+    y: 1
+  }
+
+  function drawNinjaMan(){
+    document.getElementById('ninjaman').style.top = ninjaman.y * 40 + 'px';
+    document.getElementById('ninjaman').style.left = ninjaman.x * 40 + 'px';
+    // document.getElementById('ninjaman').style.backgroundImage = "url('img/"+direction+step+".png')";
+  }
+
+  document.onkeydown = function(e){
+    if(e.keyCode === 37){ // move ninjaman left
+      if (world[ninjaman.y][ninjaman.x  - 1] !== 1) {
+        ninjaman.x--;
+      }
+    }
+    else if (e.keyCode === 39) { // ninjaman move right
+      if (world[ninjaman.y][ninjaman.x + 1] !== 1) {
+        ninjaman.x++
+      }
+    }
+    else if (e.keyCode === 38) {  // ninjaman move up
+      if (world[ninjaman.y - 1][ninjaman.x] !== 1) {
+        ninjaman.y--;
+      }
+    }
+    else if (e.keyCode === 40) {  // ninjaman move down
+      if (world[ninjaman.y + 1][ninjaman.x] !== 1) {
+        ninjaman.y++;
+      }
+    }
+    world[ninjaman.y][ninjaman.x] = 0;
+    drawNinjaMan();
+    drawWorld();
+  }
+</script>
+</html>

@@ -47,6 +47,9 @@ y = 20;
 if (x < y){
   console.log('X is less than Y');
 }
+else if (x === y) {
+
+}
 else {
   console.log('X is equal to Y');
 }

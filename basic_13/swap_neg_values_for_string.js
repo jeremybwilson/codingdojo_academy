@@ -1,19 +1,17 @@
-function swap(arr){
-  // your code goes here
-  // set the temp var to the 1st value/index of the array - arr[0]
-  var temp = arr[0];  // temp = 1
-  // now update the arr[0] index to arr length minus 1
-  arr[0] = arr[arr.length - 1]; // arr[0] = -2
-  // now switch (reset) arr[3] to the value of the temp var
-  arr[arr.length - 1] = temp;
-  // now return the array
-  return arr;
+function swapNegativesWithString(array){
+  // iterate through the array values
+  for(var index = 0; index < array.length; index += 1){
+    if(arr[index] < 0){
+      arr[index] = 'Dojo';
+    }
+  }
+  // return the new array
+  return array;
 }
-console.log(swap([1,5,10,-2]));
-
+var array_values = [1,5,10,-2];
+console.log(swapNegativesWithString(array_values));
 
 function swapNegativesWithString(arr){
-
   for(var i = 0; i < arr.length; i++){
     if(arr[i] < 0){
       arr[i] = 'Dojo';
@@ -21,4 +19,4 @@ function swapNegativesWithString(arr){
   }
   return arr;
 }
-console.log(swap([1,5,10,-2]));
+console.log(swapNegativesWithString([1,5,10,-2]));

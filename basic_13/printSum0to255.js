@@ -1,16 +1,14 @@
 function printSum0to255() {
-  var arr = [];
+  var array = [];
   var sum = 0;
   // iterate through the values 0 to 255
-  for(var i = 0; i < 256; i++) {
+  for(var index = 0; index < 256; index += 1) {
     // push each new value of the array
-    arr.push(i);
+    array.push(index);
     // add the next value of the array to the sum
-    sum += i; 
+    sum += index; 
     // console log the sum value, array value
-    console.log(arr[i] + ", " + sum);
+    console.log(array[index] + ", " + sum);
   }
-  // return the array 
-  return arr;
 }
-console.log(printSum0to255());
+printSum0to255();

@@ -1,10 +1,9 @@
-function findAvg(arr) {
+function findAverage(array){
   var total = 0;
-  for(var i = 0; i < arr.length; i++){
+  for(var index = 0; index < array.length; index += 1){
     // average = (average[i] / average.length) * average.length;
-    total = total + arr[i];
+    total = total + array[index];
   }
-  return total / arr.length
+  return total / array.length;
 }
-
-findAvg([1,3,5,7,20]);
+console.log("Here is the average of the array: " + findAverage([2,4,6,10,12,16]));

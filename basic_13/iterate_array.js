@@ -1,11 +1,10 @@
-function iterArr(arr) {
-  var total = 0;
-  for(var i = 0; i < arr.length; i++){
-    total = total + arr[i];
+// write a function to iterate and print out an array
+function iterArray(array) {
+  var array = [];
+  // iterate through the array
+  for(var index = 1; index < 256; index += 1){
+    array.push(index);
   }
-  return total;
+  return array;
 }
-
-console.log(iterArr([0]));
-console.log(iterArr([1,2,5]));
-console.log(iterArr([-5,2,5,12]));
+console.log(iterArray());

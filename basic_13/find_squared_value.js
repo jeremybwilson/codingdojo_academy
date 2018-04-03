@@ -1,22 +1,25 @@
 // print value of original product squared by itself
-function squareVal(arr){
-  for(var i = 0; i < arr.length; i++){
-    arr[i] = arr[i] * arr[i];
+function squareValues(array){
+  // iterate throught the values of the array
+  for(var index = 0; index < array.length; index += 1){
+    array[index] = array[index] * array[index];
   }
   // return the array values
-  return arr;
+  return array;
 }
-squareVal([1,5,10,6,4,-2]);
+var array_vals = [2,4,6,10,12];
+console.log("Here are the array values squared: " + squareValues(array_vals));
 
 
 // practice for speed
-function squareValues(arr){
+function squareValues(array){
   // iterate through the array
-  for(var i = 0; i < arr.length; i++){
+  for(var i = 0; i < array.length; i++){
     // square the array values
-    arr[i] = arr[i] * arr[i];
+    array[i] = array[i] * array[i];
   }
   // return the array
-  return arr;
+  return array;
 }
-console.log(squareValues([2,4,5,6,8]));
+var array_vals = [2,4,6,10,12];
+console.log(squareValues(array_vals));

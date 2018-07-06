@@ -1,3 +1,10 @@
+node_modules/
+displaying_blocks/
+intro_programming/
+karma.conf.js/
+plotting_blocks/
+algorithims_class/
+
 # Compiled source #
 ###################
 *.com

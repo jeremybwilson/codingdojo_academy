@@ -6,4 +6,5 @@ function findAverage(array){
   }
   return total / array.length;
 }
+console.log("Here is the average of the array: " + findAverage([1,3,5,7,20]));
 console.log("Here is the average of the array: " + findAverage([2,4,6,10,12,16]));

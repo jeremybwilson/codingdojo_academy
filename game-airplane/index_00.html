@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Airplane Game</title>
+  </head>
+  <body>
+    <style type="text/css">
+      #ocean{
+        background-image: url("ocean.jpg");
+        /* background-color:  blue; */
+        width:  900px;
+        height: 700px;
+      }
+      .player {
+        position: absolute;
+        width: 70px;
+        height: 75px;
+        background-image: url("player.png");
+      }
+      .enemy {
+        position: absolute;
+        background-image: url("enemy.png");
+        width: 70px;
+        height: 75px;
+      }
+      .missiles{
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        /* background-color: red; -> Only Cobra uses red lasers*/
+        background-color: blue;
+      }
+    </style>
+
+    <div id="ocean"></div>
+      <div id="players"></div>
+      <div id="enemies"></div>
+      <div id="missiles"></div> <!-- Blue lasers! Go Joe! -->
+    </div>
+
+    <script type="text/javascript">
+      var player = {
+        left: 450,
+        top: 620
+      }
+      var enemies = [
+        {left: 250, top: 200},
+        {left: 350, top: 250},
+        {left: 450, top: 250},
+        {left: 550, top: 200}
+      ]
+
+      var missiles = [];
+      // Function to draw the player image
+      function drawPlayer(){
+        content = "<div class='player' style='left:"+player.left+"px; top:"+player.top+"px'></div>";
+        document.getElementById("players").innerHTML = content;
+      }
+      // Function to draw the enemies onto the screen, # of enemies controlled by enemies[] array
+      function drawEnemies() {
+        content = "";
+        console.log(enemies);
+        for(var idx = 0; idx < enemies.length; idx++){
+          content += "<div class='enemy' style='left:"+enemies[idx].left+"px; top:"+enemies[idx].top+"px'></div>";
+        }
+        document.getElementById("enemies").innerHTML = content;
+      }
+      // Function to draw missiles on key event (spacebar)
+      function drawMissiles(){
+        content = "";
+        for(var idx = 0; idx < missiles.length; idx++){
+          content += "<div class='missiles' style='left:"+missiles[idx].left+"px; top:"+missiles[idx].top+"px'></div>"
+        }
+        document.getElementById("missiles").innerHTML = content;
+      }
+      // Function to move enemies on the screen
+      function moveEnemies(){
+        // while(enemies.top <= 700){
+          for(var idx = 0; idx < enemies.length; idx++){
+          // write loop to stop enemies before the bottom of the game board
+            enemies[idx].top = enemies[idx].top + 1;
+          }
+        // }
+      }
+      // Function to move missiles 
+      function moveMissiles(){
+        for(var idx = 0; idx < missiles.length; idx++){
+          missiles[idx].top = missiles[idx].top  - 4;
+        }
+      }
+
+      document.onkeydown = function(e){
+        console.log('e:', e);
+        if(e.keyCode == 37 && player.left > 50){ // LEFT movement
+          player.left = player.left - 10;
+        }
+        else if (e.keyCode == 39 && player.left < 750){ // RIGHT movement
+          player.left = player.left + 10;
+        }
+        else if (e.keyCode == 38 && player.top > 500){ // UP movement
+          player.top = player.top - 10;
+        }
+        else if(e.keyCode == 40 && player.top < 625){ // DOWN movement
+          player.top = player.top + 10;
+        }
+        else if(e.keyCode == 32){ // FIRE event
+          missiles.push({left: (player.left + 34), top: (player.top - 8)});
+          drawMissiles();
+        } 
+        // console.log(missiles);
+
+        drawPlayer();
+      }
+      function fasterMissiles(){
+        moveMissiles();
+      }
+      // function fasterEnemies(){
+      //   moveEnemies();
+      // }
+
+      function gameLoop(){
+        // console.log('game loop is running!');
+
+        drawPlayer();
+
+        moveEnemies();
+        drawEnemies();
+
+        fasterMissiles(moveMissiles, 100);
+        drawMissiles();
+
+        setTimeout(gameLoop, 10);
+      }
+      gameLoop();
+
+    </script>
+  </body>
+</html>

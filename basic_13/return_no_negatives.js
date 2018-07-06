@@ -16,3 +16,15 @@ function replaceNegativesWithZero(arr){
   return arr;
 }
 console.log("Here is the array with no negative values: " + replaceNegativesWithZero([1,-4,5,-7,8,10,-2]));
+
+
+
+function noNegatives(array){
+  for(var i = 0; i < array.length; i++){
+    if(array[i] < 0){
+      array[i] = 0;
+    }
+  }
+  return array;
+}
+console.log("Here is the array with no negative values: " + noNegatives([1,-4,5,-7,8,10,-2]));

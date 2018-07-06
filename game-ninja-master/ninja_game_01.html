@@ -21,7 +21,10 @@
 
   <!-- End of HTML-->
 <script>
-  var leftValue = 450, topValue = 100, direction = 'down', step = 1;;
+  let leftValue = 450;
+  let topValue = 100;
+  let direction = 'down';
+  let step = 1;
 
   function update(){
     if(step == 1){
@@ -37,8 +40,8 @@
 
   document.onkeydown = function(e) {
 
-    console.log('e: ', e); 
-    console.log('e.keyCode: ', e.keyCode);
+    // console.log('e: ', e); 
+    // console.log('e.keyCode: ', e.keyCode);
 
     if (e.keyCode == 37 && leftValue > 0) { // LEFT movement
       leftValue = leftValue - 10;
@@ -48,13 +51,13 @@
       leftValue = leftValue + 10;
       direction = 'right';
     }
-    else if (e.keyCode == 38 && topValue > 0) { // UP movement
-      topValue = topValue - 10;
-      direction = 'top';
-    }
     else if (e.keyCode == 40 && topValue < 500) { // DOWN movement
       topValue = topValue + 10;
       direction = 'down';
+    }
+    else if (e.keyCode == 38 && topValue > 0) { // UP movement
+      topValue = topValue - 10;
+      direction = 'top';
     }
     update();
   }

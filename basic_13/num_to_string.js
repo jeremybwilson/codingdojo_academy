@@ -10,4 +10,18 @@ function numToStr(arr){
   // return the array
   return arr;
 }
-console.log(numToStr([-1,-3,2,5]));
+// console.log(numToStr([-1,-3,2,5]));
+
+
+function numberToString(array){
+  for(var i = 0; i < array.length; i++){
+    // if the array value is less than zero
+    if(array[i] < 0){
+      // then assign the array index the value of the string
+      array[i] = "Dojo";
+    }
+  }
+  // return the array
+  return array;
+}
+console.log(numberToString([-3,2,5]));

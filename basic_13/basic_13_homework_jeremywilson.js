@@ -5,14 +5,14 @@
 
 function print1to255() {
   // set arr as empty array
-  var arr = [];
+  var array = [];
   // iterate through fixed values 1 to 255
-  for(var i = 1; i < 256; i++) {
+  for(var i = 1; i < 56; i++) {  // shortened to 56 for console logging brevity
     // for each loop, push the value of i
-    arr.push(i);
+    array.push(i);
   }
   // return the array
-  return arr;
+  return array;
 }
 // print1to255();
 console.log(print1to255());
@@ -22,21 +22,22 @@ console.log(print1to255());
 // Print integers from 0 to 255, and with each integer print the sum so far.
 
 function printSum0to255() {
-  var arr = [];
+  var array = [];
   var sum = 0;
   // iterate through the values 0 to 255
-  for(var i = 0; i < 256; i++) {
+  for(var i = 0; i < 56; i++) { // shortened to 56 for console logging brevity
     // push each new value of the array
-    arr.push(i);
+    array.push(i);
     // add the next value of the array to the sum
     sum += i; 
     // console log the sum value, array value
-    console.log(arr[i] + ", " + sum);
+    console.log(array[i] + ", " + sum);
   }
   // return the array 
-  return arr;
+  return array;
 }
-console.log(printSum0to255());
+printSum0to255();
+// console.log(printSum0to255());
 
 
 // Find and Print Max
@@ -146,7 +147,7 @@ function swapNegativesWithString(arr){
   }
   return arr;
 }
-console.log(swap([1,5,10,-2]));
+console.log(swapNegativesWithString([1,5,10,-2]));
 
 
 // Print Odds 1-255

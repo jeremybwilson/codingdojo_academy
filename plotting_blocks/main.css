@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+img {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+#wrapper {
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+  width: 500px;
+  overflow: hidden;
+  height: auto;
+}
+#wrapper h1, h2, h3, h4, h5, p {
+  margin: 10px 0px;
+}
+.div1, .div2 {
+  padding: 0px 10px;
+  background-color: #DDFF22;
+}
+.table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  width: 100%;
+}
+.table thead tr {
+  background-color: #696969;
+  color: #FFF;
+}
+.table td {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  text-align: center;
+  width: 33%;
+}
+.table tbody tr:nth-child(even) {
+background: #CCC
+}
+.table tbody tr:nth-child(odd) {
+background: #FFF
+}
+.listitem {
+  margin-left: 25px;
+  padding: 10px 0px;
+}
+.table, .listitem, .blogcontainer {
+  margin-bottom: 10px;
+}
+.bothcolumns, .blogcontainer {
+  width: 100%;
+}
+.leftcol, .rightcol {
+  float: left;
+  width: 49%;
+}
+.div1 ul li, .div2 ul li {
+  margin-left: 10px;
+}
+#wrapper_block {
+  width: 950px;
+  background-color: silver;
+  margin: 0px auto;
+  padding-top: 10px;
+}
+#header {
+  background-color: green;
+  height: 150px;
+  margin: 0px 15px 10px 15px;
+}
+#navigation {
+  background-color: blue;
+  height: 300px;
+  width: 200px;
+  float: left;
+  margin: 10px 10px 10px 15px;
+}
+#main_content {
+  /* float: left; */
+  background-color: red;
+  height: 400px;
+  width: 700px;
+  float: left;
+  margin: 10px 10px;
+}
+.subcontents{
+  background-color: yellow;
+  /* float: left; */
+  display: inline-block;
+  height: 200px;
+  width: 210px;
+  margin: 10px 0px 0px 12px;
+}
+#advertisement{
+  height: 120px;
+  width: 660px;
+  background-color: purple;
+  margin: 10px 0px 0px 12px;
+}
+.clear {
+  clear: both;
+}

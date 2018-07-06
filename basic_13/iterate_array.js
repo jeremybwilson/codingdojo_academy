@@ -8,3 +8,14 @@ function iterArray(array) {
   return array;
 }
 console.log(iterArray());
+
+function returnNegatives(array){
+  var array = [];
+  for(var i = 0; i < 51; i++){
+    if(i % 2 !== 0){
+      array.push(i);
+    }
+  }
+  return array;
+}
+console.log(returnNegatives());

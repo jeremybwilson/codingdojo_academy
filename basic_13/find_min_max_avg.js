@@ -24,4 +24,25 @@ function findMinMaxAvg(arr){
   // output results into this new array
   return arrnew;
 }
-findMinMaxAvg([2,4,5,7,9,10]);
+// findMinMaxAvg([2,4,5,7,9,10]);
+
+function find_min_max_avg(array){
+  var min = array[0];
+  var max = array[0];
+  var total = array[0];
+
+  for(var i = 1; i < array.length; i++){
+    if(array[i] > max){
+      max = array[i];
+    }
+    if(array[i] < min){
+      min = array[i];
+    }
+    total = total + array[i];
+  }
+  var avg = total / array.length;
+  var array_new = [max, min, avg]
+  return array_new;
+}
+console.log(find_min_max_avg([2,4,5,7,9,10]));
+console.log(find_min_max_avg([2,4,6,8,10]));

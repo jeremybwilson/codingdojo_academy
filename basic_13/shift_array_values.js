@@ -1,33 +1,33 @@
-function shiftValues(arr){
-  var temp = arr[0];
-  console.log(arr);
+function shiftValues1(array){
+  var temp = array[0];
+  console.log("Original array values are: " + array);
   // iterate through the array
-  for(var i = 0; i < arr.length; i++){
+  for(var i = 0; i < array.length; i++){
     // shift the array index forward one
-    arr[i] = arr[i + 1];
+    array[i] = array[i + 1];
   }
   // set the final value of the array to 0
-  arr[arr.length - 1] = 0;
+  array[array.length - 1] = 0;
   // return the array
-  return arr;
+  return array;
 }
-console.log(shiftValues([1,2,3]));
+console.log("Updated array values are: " + shiftValues1([1,2,3]));
 
 
 
 // practice for speed
-function shiftValues(arr){
-  console.log("Original array values are: " + arr);
+function shiftValues2(array){
+  console.log("Original array values are: " + array);
   // set the temp var to the 1st value/index of the array - arr[0]
-  var temp = arr[0];
+  var temp = array[0];
   // iterate through the array
-  for(var idx = 0; idx < arr.length - 1; idx++){
+  for(var idx = 0; idx < array.length - 1; idx++){
     // assign the current position to the next position
-    arr[idx] = arr[idx + 1];
+    array[idx] = array[idx + 1];
   }
-  arr[arr.length - 1] = 0;
-  return arr;
+  array[array.length - 1] = 0;
+  return array;
   // console.log(arr);
   // console.log(temp);
 }
-console.log("Updated array values are: " + shiftValues([1,2,3]));
+console.log("Updated array values are: " + shiftValues2([1,2,3]));

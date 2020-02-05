@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <link rel="styleshee" href="css/style.css"> -->
+  <title>PacMan</title> 
+  <style>
+    /* All of our CSS code goes here... */
+    * { 
+      /*outline: 1px dotted purple; */
+    }
+    .block{
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      margin: 0;
+      margin-bottom: -4px;
+    }
+    .row {
+      width: auto;
+    }
+    #pacman {
+      background: url("pacman2.png") no-repeat center;
+      background-size: 85% 85%;
+      background-color: #000;
+    }
+    .wall {
+      background-color: brown;
+    }
+    .air {
+      background-color: #000;
+    }
+    .coin {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      background: url('coin.png');
+      margin-bottom: -4px;
+    }
+    /*
+    div {
+      line-height: 0px;
+      margin: -2px;
+      padding: 0px;
+      vertical-align: top;
+    } 
+    */
+    /* End of CSS */
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <!-- End of HTML-->
+</body>
+<script>
+
+  var pacman = {
+    x:6, y:4
+  }
+
+  var game = document.getElementById("game");
+  var map = [
+    [1,1,1,1,1,1,1,1,1,1,1,1,1],
+    [1,3,3,3,3,3,1,3,3,3,3,3,1],
+    [1,3,1,1,3,3,3,3,3,1,1,3,1],
+    [1,3,1,3,3,1,1,1,3,3,1,3,1],
+    [1,3,3,3,3,3,2,3,3,3,3,3,1],
+    [1,3,1,3,3,1,1,1,3,3,1,3,1],
+    [1,3,1,1,3,3,3,3,3,1,1,3,1],
+    [1,3,3,3,3,3,1,3,3,3,3,3,1],
+    [1,1,1,1,1,1,1,1,1,1,1,1,1]
+  ]
+
+  // function buildBlock(type){
+  //   var block = document.createElement("div");
+  //   block.setAttribute("class", "block");
+  //   block.setAttribute("id", "pacman");
+  //   return block;
+  // }
+
+  function buildBlock(type){
+    var block = document.createElement("div");
+
+    if(type === 1){
+      block.setAttribute("class", "block wall");
+    }
+    else if(type === 2){
+      block.setAttribute("class", "block air");
+    }
+    else if(type === 3){
+      block.setAttribute("class", "block coin");
+    }
+    else if(type === 4){
+      block.setAttribute("id", "pacman");
+      block.setAttribute("class", "block");
+    }
+    else {
+      block.setAttribute("id", "pacman");
+      block.setAttribute("class", "block");
+      // block.setAttribute("class", "coin");
+    }
+    return block;
+  }
+
+  function drawMap(map){
+    game.innerHTML = "";
+    for(var r = 0; r < map.length; r += 1){
+      var row = document.createElement("div");
+      row.setAttribute("class", "row");
+      for(var c = 0; c < map[r].length; c += 1){
+        var type = map[r][c];
+        if(r === pacman.y && c === pacman.x){
+          type = 4;
+        }
+        row.appendChild(buildBlock(type));
+      }
+      game.appendChild(row);
+    }
+  }
+  drawMap(map);
+
+  console.dir(document.getElementById("character"))
+  // w -> up, a -> left, s -> down, d -> right
+
+  document.onkeydown = function(e){
+    if((e.key == 'w' || e.keyCode === 38 || e.keyCode === 87) && (map[pacman.y-1][pacman.x] !== 1)){ // move up
+      map[pacman.y][pacman.x] = 2;
+      pacman.y = pacman.y - 1;
+      map[pacman.y][pacman.x] = 4;
+      drawMap(map);
+    }
+    else if((e.key == 'a' || e.keyCode === 37 || e.keyCode === 65) && (map[pacman.y][pacman.x-1] !== 1)){ // move left
+      map[pacman.y][pacman.x] = 2;
+      pacman.x = pacman.x - 1;
+      map[pacman.y][pacman.x] = 4;
+      drawMap(map);
+    }
+    else if((e.key == 's' || e.keyCode === 40 || e.keyCode === 83) && (map[pacman.y+1][pacman.x] !== 1)){ // move down
+      map[pacman.y][pacman.x] = 2;
+      pacman.y = pacman.y + 1;
+      map[pacman.y][pacman.x] = 4;
+      drawMap(map);
+    }
+    else if((e.key == 'd' || e.keyCode === 39 || e.keyCode === 68) && (map[pacman.y][pacman.x+1] !== 1)){ // move right
+      map[pacman.y][pacman.x] = 2;
+      pacman.x = pacman.x + 1;
+      map[pacman.y][pacman.x] = 4;
+      drawMap(map);
+    }
+    // document.getElementById("character").style.left = pacman.x + "%";
+    // document.getElementById("character").style.top = pacman.y + "%";
+    // console.log(e);
+  }
+  // End of JavaScript
+</script>
+</html>

@@ -3,16 +3,17 @@
 */
 const myArray = [2,4,6,8];
 
-function reverse(arr){
+function reverse(arr){        // this method only works for a fix number of array values, eg. 4 values
   const temp = myArray[0];    // preserve the value that's about to be lost
-  myArray[0] = myArray[3];  // copying the value from index 3 to index 0 -> 8 to 2
-  myArray[3] = temp;        // the 2 goes where the 8 was
+  myArray[0] = myArray[3];    // copying the value from index 3 to index 0 -> 8 to 2
+  myArray[3] = temp;          // the 2 goes where the 8 was
 
   const temp2 = myArray[1];   // 4
-  myArray[1] = myArray[2];  // copying 6 into 4
-  myArray[2] = temp2;       // the 4 goes where the 6 was
+  myArray[1] = myArray[2];    // copying 6 into 4
+  myArray[2] = temp2;         // the 4 goes where the 6 was
 
-  console.log(myArray);
+  return myArray;
+  // console.log(myArray);
   // output => [8,6,4,2]
 }
 reverse();
@@ -26,8 +27,9 @@ function reverse1(arr){
   }
   return myArray;
 }
-console.log('The result of reverse1() is: ', reverse1(myArray));
-console.log('The result of reverse1() is: ', reverse1([10,8,6,4,2]));
+// Test cases
+// console.log('The result of reverse1() is: ', reverse1(myArray));
+// console.log('The result of reverse1() is: ', reverse1([10,8,6,4,2]));
 
 const myArray2 = [2,4,5,7,6,8,10,12];
 
@@ -41,6 +43,7 @@ function reverse2(arr){
   }
   return myArray2;
 }
+// Test cases
 console.log('The result of reverse2() is: ', reverse2(myArray2));
 
 function reverse3(arr){
@@ -56,7 +59,8 @@ function reverse3(arr){
   }
   return newArray;
 }
-console.log(reverse3([1, 2, 3, 4, 5]))
+// Test cases
+// console.log(reverse3([1, 2, 3, 4, 5]))
 // ^-- this should return [5, 4, 3, 2, 1]
 
 
@@ -69,5 +73,5 @@ function reverseArray(arr){
   }
   return newArr;
 }
-console.log('The result of reverseArray() is: ', reverseArray([1,2,3,4]));
-console.log('The result of reverseArray() is: ', reverseArray(['Code', 'Is', 'Awesome']));
+// console.log('The result of reverseArray() is: ', reverseArray([1,2,3,4]));
+// console.log('The result of reverseArray() is: ', reverseArray(['Code', 'Is', 'Awesome']));

@@ -1,8 +1,9 @@
+
 function swapNegativesWithString(array){
   // iterate through the array values
   for(var index = 0; index < array.length; index += 1){
-    if(arr[index] < 0){
-      arr[index] = 'Dojo';
+    if(array_values[index] < 0){
+      array[index] = 'Dojo';
     }
   }
   // return the new array
@@ -11,12 +12,12 @@ function swapNegativesWithString(array){
 var array_values = [1,5,10,-2];
 console.log(swapNegativesWithString(array_values));
 
-function swapNegativesWithString(arr){
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i] < 0){
-      arr[i] = 'Dojo';
+function swapNegativesWithString2(array){
+  for(var i = 0; i < array.length; i++){
+    if(array[i] < 0){
+      array[i] = 'Dojo';
     }
   }
-  return arr;
+  return array;
 }
-console.log(swapNegativesWithString([1,5,10,-2]));
+console.log(swapNegativesWithString2([1,5,10,-2]));

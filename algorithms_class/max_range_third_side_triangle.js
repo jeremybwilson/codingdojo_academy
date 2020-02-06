@@ -3,12 +3,14 @@
 // where the side lengths are all integers.
 
 const nextEdge = (side1, side2) => {
-  if(side1 <= 0 || side2 <= 0){
+  let min_length = (Math.max(side1, side2)) - (Math.min(side1, side2) + 1);
+  let max_length = side1 + side2 - 1;
+  
+  if(side1 <= 0 || side2 <= 0){  // Not a valid triangle 
+    console.log(`Not a valid triangle`);
+  } else if(min_length > max_length) {  // Not a valid triangle 
     console.log(`Not a valid triangle`);
   }
-  
-  let min_length = (Math.max(side1, side2)) - (Math.min(side1, side2) + 1);
-  let max_length = side1 + side2 + 1;
   
   console.log(min_length, max_length);
   return max_length;

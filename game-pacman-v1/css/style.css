@@ -1,0 +1,61 @@
+/* All of our CSS code goes here... */
+* { 
+  /*outline: 1px dotted purple; */
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#world{
+  vertical-align: top;
+}
+div.row div, div.coin, div.wall, div.ground, div.cherry, div.ghost, div#pacman {
+  height: 50px;
+  width: 50px;
+}
+.wall {
+  background: url("../wall.png") no-repeat center;
+  background-size: cover;
+}
+.coin {
+  background: url("../coin.png") no-repeat center;
+  background-size: cover;
+}
+.ground {
+  background: url("../bg.png") no-repeat center;
+  background-size: cover;
+}
+.ghost {
+  background: url("../ghost1.png") no-repeat center;
+  background-size: cover;
+}
+.cherry {
+  background: url("../cherry.png") no-repeat center;
+  background-size: cover;
+}
+#pacman {
+  background-image: url('../pacman-right.png');
+  background-size: cover;
+  position: absolute;
+}
+div.row {
+  background-color: #000;
+  height: 50px;
+  width: 650px;
+}
+div.row div {
+  display: inline-block;
+}
+div#score {
+  border: 1px solid black;
+  width: 30px;
+  height: 10px;
+  color: blue;
+  padding: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+div {
+  line-height: 0px;
+}
+/* End of CSS */
